@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction History | Plant Disease Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">🌿 PlantCare AI</div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/history">Prediction History</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <p class="tagline">YOUR SCAN RECORDS</p>
+            <h1>Prediction History</h1>
+            <p>View previously analyzed plant images and their prediction results.</p>
+        </section>
+
+        <section class="upload-card">
+
+            <h2>Previous Predictions</h2>
+
+            {% if records %}
+
+            <div style="overflow-x: auto; margin-top: 25px;">
+
+                <table style="width: 100%; border-collapse: collapse; text-align: left;">
+
+                    <thead>
+                        <tr style="background: #eaf5ec;">
+                            <th style="padding: 12px;">Image</th>
+                            <th style="padding: 12px;">Plant</th>
+                            <th style="padding: 12px;">Disease</th>
+                            <th style="padding: 12px;">Confidence</th>
+                            <th style="padding: 12px;">Status</th>
+                            <th style="padding: 12px;">Date</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        {% for record in records %}
+
+                        <tr style="border-bottom: 1px solid #eee;">
+
+                            <td style="padding: 12px;">
+                                <img
+                                    src="{{ url_for('static', filename=record['image_path'].replace('static/', '')) }}"
+                                    alt="Plant image"
+                                    style="width: 65px; height: 65px; object-fit: cover; border-radius: 8px;"
+                                >
+                            </td>
+
+                            <td style="padding: 12px;">
+                                {{ record['plant_name'] }}
+                            </td>
+
+                            <td style="padding: 12px;">
+                                {{ record['disease_name'] }}
+                            </td>
+
+                            <td style="padding: 12px;">
+                                {{ record['confidence'] }}%
+                            </td>
+
+                            <td style="padding: 12px;">
+                                {{ record['status'] }}
+                            </td>
+
+                            <td style="padding: 12px;">
+                                {{ record['timestamp'] }}
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            {% else %}
+
+            <p style="text-align: center; margin-top: 25px;">
+                No prediction records found. Upload a plant image to get started.
+            </p>
+
+            {% endif %}
+
+            <div style="margin-top: 25px;">
+                <a href="/" style="color: #23834b; font-weight: bold; text-decoration: none;">
+                    ← Back to Home
+                </a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Plant Disease Detection Using Deep Learning | Final Year Project</p>
+    </footer>
+
+</body>
+</html>

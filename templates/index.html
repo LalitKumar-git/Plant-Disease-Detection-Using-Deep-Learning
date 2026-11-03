@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Disease Detection Using Deep Learning</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">🌿 PlantCare AI</div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/history">Prediction History</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <p class="tagline">AI-POWERED AGRICULTURE</p>
+            <h1>Plant Disease Detection Using Deep Learning</h1>
+            <p>Upload a plant leaf image and use deep learning to identify potential plant diseases.</p>
+        </section>
+
+        <section class="upload-card">
+            <h2>Analyze Your Plant</h2>
+            <p>Upload a clear image of a plant leaf.</p>
+
+            <form id="uploadForm">
+                <label for="imageInput" class="upload-area">
+                    <span class="upload-icon">📷</span>
+                    <strong>Choose a plant image</strong>
+                    <span>PNG, JPG, JPEG or WEBP</span>
+                </label>
+
+                <input type="file" id="imageInput" name="image"
+                       accept=".png,.jpg,.jpeg,.webp" required>
+
+                <div id="previewContainer">
+                    <img id="imagePreview" alt="Plant image preview">
+                </div>
+
+                <button type="submit" id="predictBtn">Detect Plant Disease</button>
+            </form>
+
+            <div id="loading" hidden>Analyzing image... Please wait.</div>
+            <div id="errorMessage" class="error"></div>
+        </section>
+
+        <section id="resultSection" class="result-card" hidden>
+            <h2>Prediction Result</h2>
+            <div id="predictionResult"></div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Plant Disease Detection Using Deep Learning | Final Year Project</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

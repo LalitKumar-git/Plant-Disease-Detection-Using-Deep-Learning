@@ -1,0 +1,260 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f8f4;
+    color: #24352a;
+    line-height: 1.6;
+}
+
+/* Navbar */
+
+.navbar {
+    background: #ffffff;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: #23834b;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 28px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #405447;
+    font-weight: 600;
+}
+
+.navbar a:hover {
+    color: #23834b;
+}
+
+/* Main Container */
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 45px 20px;
+}
+
+/* Hero Section */
+
+.hero {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.tagline {
+    color: #23834b;
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+
+.hero h1 {
+    font-size: 36px;
+    color: #173c27;
+    margin: 12px 0;
+}
+
+.hero p {
+    color: #68796d;
+    max-width: 650px;
+    margin: auto;
+}
+
+/* Upload Card */
+
+.upload-card,
+.result-card {
+    background: white;
+    max-width: 750px;
+    margin: 0 auto 35px;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+.upload-card h2,
+.result-card h2 {
+    text-align: center;
+    color: #173c27;
+    margin-bottom: 8px;
+}
+
+.upload-card > p {
+    text-align: center;
+    color: #7b897f;
+    margin-bottom: 25px;
+}
+
+/* Image Upload */
+
+.upload-area {
+    border: 2px dashed #8cbea0;
+    border-radius: 14px;
+    min-height: 190px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    background: #f7fbf7;
+    transition: 0.3s;
+}
+
+.upload-area:hover {
+    background: #eaf5ec;
+    border-color: #23834b;
+}
+
+.upload-icon {
+    font-size: 40px;
+}
+
+.upload-area strong {
+    color: #285d3b;
+    font-size: 17px;
+}
+
+.upload-area span:last-child {
+    color: #87958a;
+    font-size: 13px;
+}
+
+#imageInput {
+    display: none;
+}
+
+#previewContainer {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#imagePreview {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 12px;
+    object-fit: contain;
+}
+
+/* Button */
+
+button {
+    width: 100%;
+    margin-top: 22px;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #23834b;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #176438;
+}
+
+button:disabled {
+    background: #8ca997;
+    cursor: not-allowed;
+}
+
+/* Results */
+
+.result-card {
+    border-top: 5px solid #23834b;
+}
+
+#predictionResult {
+    margin-top: 20px;
+    color: #405447;
+}
+
+#predictionResult p {
+    margin: 10px 0;
+}
+
+.error {
+    color: #c0392b;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* Statistics */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.stat-card {
+    background: white;
+    text-align: center;
+    padding: 25px 15px;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+}
+
+.stat-card h3 {
+    color: #23834b;
+    font-size: 30px;
+}
+
+.stat-card p {
+    color: #718077;
+    font-size: 14px;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #849187;
+    font-size: 13px;
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 650px) {
+    .navbar {
+        padding: 15px 5%;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .hero h1 {
+        font-size: 26px;
+    }
+
+    .upload-card,
+    .result-card {
+        padding: 22px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+}
